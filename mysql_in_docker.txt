@@ -1,0 +1,16 @@
+docker run --name mysql-test -e MYSQL_ROOT_PASSWORD=akhil@mysql -e MYSQL_DATABASE=mysql_db -e MYSQL_USER=akhil -e MYSQL_PASSWORD=password -p 3306:3306 -v mysql-data:/var/lib/mysql -d mysql:8.0
+
+docker logs mysql-test
+
+docker exec -it mysql-test mysql -uakhil -ppassword
+docker exec -it mysql-test mysql -u root -p
+
+docker stop mysql-test
+docker rm mysql-tests
+docker volume rm mysql-data
+
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+If no permission ERROR
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
