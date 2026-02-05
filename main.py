@@ -10,7 +10,7 @@ def connect_redis():
     r = redis.Redis(
             host="localhost",
             port=6379,
-            password="redis@test",
+            password="<your_redis_password>",
             decode_responses=True
         )
     return r
@@ -18,9 +18,9 @@ def connect_redis():
 def connect_mysql():
     connection = mysql.connector.connect(
         host="localhost",
-        user="akhil",
-        password="password",
-        database="mysql_db"
+        user="<your_mysql_db_user>",
+        password="<your_mysql_db_user_password>",
+        database="<your_database>"
     )
     return connection
 
@@ -76,4 +76,5 @@ def index():
     return render_template('index.html', courses=courses, load_time=load_time, database=database)
 
 if __name__ == "__main__":
+
     app.run(debug=True, port=5000)
